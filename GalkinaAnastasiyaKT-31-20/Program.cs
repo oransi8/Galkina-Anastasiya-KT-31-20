@@ -1,10 +1,9 @@
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using GalkinaAnastasiyaKT_31_20.Database;
+using Microsoft.EntityFrameworkCore;
 using NLog;
 using NLog.Web;
-using System;
+using System.Reflection.PortableExecutable;
+using static GalkinaAnastasiyaKT_31_20.ServiceExtensions.ServiceExtensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +19,10 @@ try
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen();
 
+    builder.Services.AddDbContext<StudentDbContext>(options =>
+        options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+    builder.Services.AddServices();
     var app = builder.Build();
 
     // Configure the HTTP request pipeline.
