@@ -29,10 +29,10 @@ namespace GalkinaAnastasiyaKT_31_20.Migrations
                 {
                     student_id = table.Column<int>(type: "int", nullable: false, comment: "ID студента")
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    c_student_name = table.Column<string>(type: "nvarchar(Max)", maxLength: 100, nullable: false, comment: "Имя"),
-                    c_student_surname = table.Column<string>(type: "nvarchar(Max)", maxLength: 100, nullable: false, comment: "Фамилия"),
-                    c_student_patronym = table.Column<string>(type: "nvarchar(Max)", maxLength: 100, nullable: true, comment: "Отчество"),
-                    f_group_id = table.Column<int>(type: "int", nullable: false, comment: "ID группы")
+                    c_student_firstname = table.Column<string>(type: "nvarchar(Max)", maxLength: 100, nullable: false, comment: "Имя студента"),
+                    c_student_lastname = table.Column<string>(type: "nvarchar(Max)", maxLength: 100, nullable: false, comment: "Фамилия студента"),
+                    c_student_middlename = table.Column<string>(type: "nvarchar(Max)", maxLength: 100, nullable: true, comment: "Отчество студента"),
+                    f_group_id = table.Column<int>(type: "int", nullable: false, comment: "Идентификатор группы")
                 },
                 constraints: table =>
                 {

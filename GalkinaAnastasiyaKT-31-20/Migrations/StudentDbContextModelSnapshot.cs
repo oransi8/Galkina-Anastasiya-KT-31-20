@@ -54,30 +54,30 @@ namespace GalkinaAnastasiyaKT_31_20.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("StudentId"));
 
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(Max)")
+                        .HasColumnName("c_student_firstname")
+                        .HasComment("Имя студента");
+
                     b.Property<int>("GroupId")
                         .HasColumnType("int")
                         .HasColumnName("f_group_id")
-                        .HasComment("ID группы");
+                        .HasComment("Идентификатор группы");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("LastName")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(Max)")
-                        .HasColumnName("c_student_name")
-                        .HasComment("Имя");
+                        .HasColumnName("c_student_lastname")
+                        .HasComment("Фамилия студента");
 
-                    b.Property<string>("Patronym")
+                    b.Property<string>("MiddleName")
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(Max)")
-                        .HasColumnName("c_student_patronym")
-                        .HasComment("Отчество");
-
-                    b.Property<string>("Surname")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(Max)")
-                        .HasColumnName("c_student_surname")
-                        .HasComment("Фамилия");
+                        .HasColumnName("c_student_middlename")
+                        .HasComment("Отчество студента");
 
                     b.HasKey("StudentId")
                         .HasName("pk_cd_student_student_id");
